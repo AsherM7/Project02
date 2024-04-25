@@ -6,7 +6,7 @@ export async function getAllBlogs(req, res) {
         const blogs = await BlogModel.find();
         res.json(blogs);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message, method: "getAllBlogs" });
     }
 }
 
@@ -19,7 +19,7 @@ export async function getBlogByID(req, res) {
         }
         res.json(blog);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message, method: "getBlogByID" });
     }
 }
 
@@ -71,11 +71,14 @@ export async function addBlogComment(req, res) {
             content,
             likes: 0
         };
+        console.log(blog);
+        console.log(newComment);
         blog.comments.push(newComment);
         const updatedBlog = await blog.save();
+        console.log(updatedBlog);
         res.json(updatedBlog);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message, method: "addBlogComment" });
     }
 }
 
@@ -97,7 +100,7 @@ export async function likeBlogComment(req, res) {
         const updatedBlog = await blog.save();
         res.json(updatedBlog);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message, method: "likeBlogComment" });
     }
 }
 

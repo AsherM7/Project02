@@ -2,13 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Mahajan</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Blog App</h1>
-<br>
-<h2>Latest Blog Posts</h2>
-<div id="blogPosts"></div>
-<script src= "script.js"></script>
+
+<header>
+    <img src="resources/blogLogo.png" alt="Logo" class="logo" >
+    <div>
+        <h1>IST 256 - Project 02: Discussion Blog</h1>
+        <h4>Sign in to create a new blog post, or leave a like and comment on other posts!</h4>
+    </div>
+</header>
+
+<div class="content">
+
+    <div class="sidebar">
+        <div id="loginFormContainer">
+            <h3>Login</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div> <br>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div> <br>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <br>
+            <div id="validation"></div>
+        </div>
+
+        <div id="blogForm">
+            <div id="blogFormContainer" style="display:none">
+                <div id="userGreeting"></div>
+                <h3>Create a New Blog Post</h3>
+                <form id="blogPostForm">
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" class="form-control" id="postTitle" name="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea class="form-control" id="postContent" name="postContent" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Post</button>
+                </form>
+                <br>
+                <div id="postValidation"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="displayedPage">
+        <h1>Latest Blog Posts</h1>
+        <div id="blogPosts"></div>
+
+    </div>
+</div>
+
+<footer>
+    <a href="www.linkedin.com/in/asher-mahajan">LinkedIn</a>
+    <p>Asher Mahajan<br>ashermahajan@gmail.com</p>
+    <p>Copyright 2024</p>
+</footer>
+
+<script src = "script.js"></script>
 </body>
 </html>
